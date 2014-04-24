@@ -4,6 +4,7 @@
       <section>
         <%= render 'shared/user_info' %>
         <% if current_user.admin? %>
+        	<p> (Admin) </p>
         <% end %>
       </section>
       <section>
