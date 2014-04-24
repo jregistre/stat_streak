@@ -5,8 +5,13 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
-        <%= @user.email %>
       </h1>
+      <li>
+        <%= @user.email %>
+        <% if current_user.admin? %>
+          <p> (Admin) </p>
+        <% end %>
+      </li>
     </section>
     <section>
       <%= render 'shared/stats' %>
