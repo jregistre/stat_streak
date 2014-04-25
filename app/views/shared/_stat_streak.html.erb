@@ -1,4 +1,4 @@
-<h3><%= @user.nick_name if @user.nick_name? %> Stats</h3>
+<h3>"<%= @user.nick_name if @user.nick_name? %>" Stats</h3>
         <% if @user.start_weight.nil? || @user.height_ft.nil? || @user.height_in.nil? || @user.target_weight.nil? %>
         	<ul>Complete profile for Stats</ul>
         <% else %>	

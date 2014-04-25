@@ -21,4 +21,14 @@ describe Entry do
     before { @entry.user_id = nil }
     it { should_not be_valid }
   end
+
+  describe "with blank weight" do
+    before { @entry.weight = nil }
+    it { should_not be_valid }
+  end
+
+  describe "with weight that is too high" do
+    before { @entry.weight > 400 }
+    it { should_not be_valid }
+  end
 end

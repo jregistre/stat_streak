@@ -1,0 +1,6 @@
+<% if @scale_items.any? %>
+  <ol class="entries">
+    <%= render partial: 'shared/scale_item', collection: @scale_items %>
+  </ol>
+  <%= will_paginate @scale_items %>
+<% end %>

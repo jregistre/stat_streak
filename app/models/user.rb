@@ -26,6 +26,10 @@ validates :name, presence: true, length: { maximum: 50 }
     Micropost.from_users_followed_by(self)
   end
 
+  def scale
+    Entry.from_users_followed_by(self)
+  end
+
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
   end
