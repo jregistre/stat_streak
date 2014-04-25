@@ -22,15 +22,7 @@
       <%= render 'follow_form' if signed_in? %>
     </section>
     <section>
-        <h3><%= @user.nick_name if @user.nick_name? %> Stats</h3>
-        <ul>Height: <%= @user.height_ft %>'<%= @user.height_in %></ul>
-        <h6>At Start:</h6>
-        <ul>Weight: <%= @user.start_weight %> | BMI: <%= @user.start_weight / (((@user.height_ft * 12) + @user.height_in) * ((@user.height_ft * 12) + @user.height_in)) * 703 %></ul>
-        <h6>Current:</h6>
-        <ul>Weight: <%= @user.start_weight %> | BMI: <%= @user.start_weight / (((@user.height_ft * 12) + @user.height_in) * ((@user.height_ft * 12) + @user.height_in)) * 703 %></ul>
-        <ul>On <%= @user.created_at %></ul>
-        <h6>Goal:</h6>
-        <ul>Weight: <%= @user.target_weight %> | BMI: <%= @user.target_weight / (((@user.height_ft * 12) + @user.height_in) * ((@user.height_ft * 12) + @user.height_in)) * 703 %></ul>
+        <%= render 'shared/stat_streak' %>
     </section>
   </aside>
   <div class="span8">

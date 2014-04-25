@@ -23,6 +23,7 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
   it { should respond_to(:microposts) }
+  it { should respond_to(:entries) }
   it { should respond_to(:feed) }
   it { should respond_to(:relationships) }
   it { should respond_to(:followed_users) }
@@ -180,6 +181,30 @@ describe User do
         followed_user.microposts.each do |micropost|
           should include(micropost)
         end
+      end
+    end
+  end
+
+  describe "entry associations" do
+
+    before { @user.save }
+    let!(:older_entry) do
+      FactoryGirl.create(:entry, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_entry) do
+      FactoryGirl.create(:entry, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right entries in the right order" do
+      expect(@user.entries.to_a).to eq [newer_entry, older_entry]
+    end
+
+    it "should destroy associated entries" do
+      entries = @user.entries.to_a
+      @user.destroy
+      expect(entries).not_to be_empty
+      entries.each do |entry|
+        expect(entry.where(id: entry.id)).to be_empty
       end
     end
   end
