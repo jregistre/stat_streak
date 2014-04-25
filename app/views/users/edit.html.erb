@@ -8,6 +8,9 @@
       <%= f.label :name %>
       <%= f.text_field :name %>
 
+      <%= f.label :nick_name %>
+      <%= f.text_field :nick_name %>
+
       <%= f.label :email %>
       <%= f.text_field :email %>
 
@@ -16,6 +19,21 @@
 
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
+
+      <%= f.label :sex %>
+      <%= f.text_field :sex %>
+
+      <%= f.label :start_weight %>
+      <%= f.text_field :start_weight %>
+
+      <%= f.label :target_weight %>
+      <%= f.text_field :target_weight %>
+
+      <%= f.label :height_ft %>
+      <%= f.text_field :height_ft %>
+
+      <%= f.label :height_in %>
+      <%= f.text_field :height_in %>
 
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>

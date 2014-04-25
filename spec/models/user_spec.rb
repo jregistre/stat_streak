@@ -13,6 +13,12 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:weight) }
+  it { should respond_to(:height_ft) }
+  it { should respond_to(:height_in) }
+  it { should respond_to(:sex) }
+  it { should respond_to(:target_weight) }
+  it { should respond_to(:nick_name) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }

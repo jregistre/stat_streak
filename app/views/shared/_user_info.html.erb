@@ -8,3 +8,8 @@
 <span>
   <%= pluralize(current_user.microposts.count, "micropost") %>
 </span>
+<span>
+	<% if current_user.admin? %>
+    	<ul> (Admin) </ul>
+    <% end %>
+</span>
