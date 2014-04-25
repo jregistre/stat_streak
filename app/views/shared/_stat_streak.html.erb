@@ -1,4 +1,4 @@
-<h3><%= @user.nick_name %> Stats</h3>
+<h3><%= @user.nick_name if @user.nick_name? %> Stats</h3>
         <ul>Height: <%= @user.height_ft %>'<%= @user.height_in %></ul>
         <h6>At Start:</h6>
         <ul>Weight: <%= @user.start_weight %> | BMI: <%= @user.start_weight / (((@user.height_ft * 12) + @user.height_in) * ((@user.height_ft * 12) + @user.height_in)) * 703 %></ul>
