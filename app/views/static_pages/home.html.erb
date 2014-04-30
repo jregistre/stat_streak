@@ -18,9 +18,10 @@
       </section>
     </aside>
     <div class="span8">
-      <h3>Weight Entries</h3>
-      	<ul class="users">
-        <%= render 'shared/scale' %>
+      <section>
+      	<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+      	<%= render 'shared/weightchart' %>
+      </section>
       <h3>Micropost Feed</h3>
       	<ul class="users">
         <%= render 'shared/feed' %>
