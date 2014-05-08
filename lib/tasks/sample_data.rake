@@ -3,7 +3,7 @@ namespace :db do
   task populate: :environment do
     make_users
     make_microposts
-    make_relationships
+    make_entries
   end
 end
 
@@ -12,32 +12,38 @@ def make_users
                        email:    "jregistre@gmail.com",
                        password: "password",
                        password_confirmation: "password",
+                       nick_name: "JFreedom",
+                       sex: "Male",
+                       start_weight: "285",
+                       target_weight: "220",
+                       height_ft: "6",
+                       height_in: "3",
                        admin: true)
-  25.times do |n|
-    name  = Faker::Name.name
-    email = "example-#{n+1}@railstutorial.org"
-    password  = "password"
-    User.create!(name:     name,
-                 email:    email,
-                 password: password,
-                 password_confirmation: password,
-                 admin: false)
-  end
+  admin = User.create!(name:     "Tonya Registre",
+                       email:    "tonyaday9@gmail.com",
+                       password: "password",
+                       password_confirmation: "password",
+                       nick_name: "Boss",
+                       sex: "Female",
+                       start_weight: "120",
+                       target_weight: "115",
+                       height_ft: "5",
+                       height_in: "3",
+                       admin: false)
 end
 
 def make_microposts
   users = User.all(limit: 6)
-  15.times do
+  5.times do
     content = Faker::Lorem.sentence(5)
     users.each { |user| user.microposts.create!(content: content) }
   end
 end
 
-def make_relationships
-  users = User.all
-  user  = users.first
-  followed_users = users[2..15]
-  followers      = users[3..10]
-  followed_users.each { |followed| user.follow!(followed) }
-  followers.each      { |follower| follower.follow!(user) }
+def make_entries
+  users = User.all(limit: 6)
+  5.times do
+    weight = 200
+    users.each { |user| user.microposts.create!(weight: weight) }
+  end
 end

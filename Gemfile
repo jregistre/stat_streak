@@ -12,6 +12,7 @@ gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'chartkick'
 gem 'groupdate'
+gem 'json'
 
 
 group :development, :test do

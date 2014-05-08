@@ -1,8 +1,2 @@
-
-<% @user ||= current_user %>
-  <%= line_chart [
-  {name: current_user.nick_name, data: 0.5}
-] %>
-<h3>Weight Entries</h3>
-      	<ul class="users">
-        <%= render 'shared/scale' %>
+<h3>Weight Chart</h3>
+<%= content_tag :div, "", id: "weight_chart", data: {entries: Entry.weight_by_day} %>

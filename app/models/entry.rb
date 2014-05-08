@@ -8,4 +8,18 @@ class Entry < ActiveRecord::Base
       followed_user_ids = user.followed_user_ids
       where("user_id IN (?) OR user_id = ?", followed_user_ids, user)
     end
+
+    #def self.chart_data
+    #	total_weight = weight_by_day(3.weeks.ago)
+    #	(3.weeks.ago.to_date..Date.today).map do |date|
+    #		{
+    #			created_at: date,
+    #			weight: total_weight[date] || 0
+    #		}
+    #	end
+    #end
+
+    def self.weight_by_day
+    	entries = Entry.select("created_at, weight").where(created_at: 3.weeks.ago.beginning_of_day..Time.zone.now).where( user_id: 1)
+    end
 end

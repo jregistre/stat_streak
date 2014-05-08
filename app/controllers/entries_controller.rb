@@ -18,6 +18,10 @@ class EntriesController < ApplicationController
     redirect_to root_url
   end
 
+  #def index
+  #  @weight = Entry.entry("date(created_at) desc").page(params[:page]).per_page(10)
+  #end
+
   private
 
     def entry_params
