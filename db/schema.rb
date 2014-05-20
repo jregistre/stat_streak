@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140425040042) do
   enable_extension "plpgsql"
 
   create_table "entries", force: true do |t|
-    t.float    "weight"
+    t.decimal  "weight",     precision: 5, scale: 2
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

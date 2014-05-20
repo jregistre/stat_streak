@@ -20,6 +20,6 @@ class Entry < ActiveRecord::Base
     #end
 
     def self.weight_by_day
-    	entries = Entry.select("created_at, weight").where(created_at: 3.weeks.ago.beginning_of_day..Time.zone.now).where( user_id: 1)
+    	entries = Entry.select("created_at, weight").where(created_at: 3.weeks.ago.beginning_of_day..Time.zone.now).where( user_id: 1 )
     end
 end

@@ -42,6 +42,8 @@ validates :name, presence: true, length: { maximum: 50 }
     relationships.find_by(followed_id: other_user.id).destroy
   end
 
+  def user_id_for_entry
+  end
 
   private
 

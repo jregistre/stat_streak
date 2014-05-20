@@ -1,7 +1,7 @@
 class CreateEntries < ActiveRecord::Migration
   def change
     create_table :entries do |t|
-      t.decimal :weight, :precision => 2, :scale => 8
+      t.decimal :weight, :precision => 5, :scale => 2
       t.integer :user_id
 
       t.timestamps

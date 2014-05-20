@@ -19,8 +19,12 @@
     </aside>
     <div class="span8">
       <section>
-        <%= render 'shared/weightchart' %>
+       <% if @user.entries.any? %>
+          <h3>Weight Chart</h3>
+          <%= content_tag :div, "", id: "weight_chart", data: {entries: Entry.weight_by_day} %>
+        <% end %>
       </section>
+      <%= render 'shared/scale' %>
       <h3>Micropost Feed</h3>
       	<ul class="users">
         <%= render 'shared/feed' %>
