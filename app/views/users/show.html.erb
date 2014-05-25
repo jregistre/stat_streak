@@ -26,6 +26,10 @@
     </section>
   </aside>
   <div class="span8">
+    <section>
+          <h3>Weight Chart</h3>
+          <%= content_tag :div, "", id: "weight_chart", data: {entries: Entry.weight_by_day} %>
+      </section>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">

@@ -27,7 +27,7 @@ validates :name, presence: true, length: { maximum: 50 }
   end
 
   def scale
-    Entry.from_users_followed_by(self)
+    Entry.where("user_id = ?", id)
   end
 
   def following?(other_user)

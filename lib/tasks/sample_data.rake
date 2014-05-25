@@ -44,6 +44,6 @@ def make_entries
   users = User.all(limit: 6)
   5.times do
     weight = 200
-    users.each { |user| user.microposts.create!(weight: weight) }
+    users.each { |user| user.entries.create!(weight: weight) }
   end
 end
